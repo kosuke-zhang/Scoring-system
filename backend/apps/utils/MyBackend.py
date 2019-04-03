@@ -14,7 +14,7 @@ class AuthBackend(ModelBackend):
         try:
             user = UserModel.objects.get(Q(code=username) | Q(email=username))
             return user
-            if user.check_password(password) and self.user_can_authenticate(user):
-                return user
+            # if user.check_password(password) and self.user_can_authenticate(user):
+            #     return user
         except Exception as e:
             return None

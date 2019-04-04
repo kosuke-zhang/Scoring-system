@@ -4,6 +4,9 @@ import PagesView from './views/PagesView'
 import CompetitionList from "./components/CompetitionList";
 import CompositionList from "./views/CompositionList";
 import JudgeView from "./views/JudgeView";
+// import Home from "./views/Home";
+import LoginView from "./views/LoginView";
+import Rules from "./components/Rules";
 
 Vue.use(Router)
 
@@ -13,16 +16,9 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: '/pages/'
-    },
-    {
-      path: '/pages',
+      redirect: '/competition/',
       component: PagesView,
       children: [
-        {
-          path: '',
-          redirect: '/pages/competition'
-        },
         {
           path: 'competition',
           name: 'CompetitionList',
@@ -37,8 +33,18 @@ export default new Router({
           path: 'judge/:id',
           name: 'JudgeView',
           component: JudgeView
-        }
+        },
+        {
+          path: 'rules',
+          name: 'rules',
+          component: Rules
+        },
       ],
+
+    },
+    {
+      path: '/login',
+      component: LoginView,
     }
   ]
 })

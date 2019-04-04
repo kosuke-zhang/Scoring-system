@@ -1,6 +1,7 @@
 <template>
   <div class="pages-view">
     <header-bar></header-bar>
+    <!--:showLeftArrow="true" :leftText="'返回'"-->
     <router-view/>
   </div>
 </template>

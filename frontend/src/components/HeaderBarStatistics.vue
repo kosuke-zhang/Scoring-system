@@ -1,6 +1,6 @@
 <template>
     <div class="header-bar">
-        <van-nav-bar @click-left="onClickLeft" @click-right="onClickRight" title="评分">
+        <van-nav-bar title="统计" @click-right="onClickRight" @click-left="onClickLeft">
             <van-icon name="wap-home" slot="right"/>
             <van-icon name="chart-trending-o" slot="left"/>
         </van-nav-bar>
@@ -8,11 +8,16 @@
 </template>
 
 <script>
+    import JudgeView from "../views/JudgeView";
 
     export default {
-        name: 'header-bar',
+        name: 'header-bar-statistics',
+        components: {
+            JudgeView
+        },
         data() {
-            return {}
+            return {
+            }
         },
         methods: {
             onClickRight() {

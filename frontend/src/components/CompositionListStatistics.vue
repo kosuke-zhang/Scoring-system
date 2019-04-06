@@ -8,9 +8,7 @@
                 v-for="item in list"
                 :key="item.id"
                 :title="title(item)"
-                @click="to(item)"
         />
-        <!--                :to="{name: 'JudgeView', params: { id: item.id }}"-->
     </van-list>
 </template>
 
@@ -31,22 +29,7 @@
         },
         methods: {
             title: function(item){
-                if(item.score){
-                    return item.name + ' 得分 ' + item.score
-                }else {
-                    return item.name
-                }
-            },
-            to: function(item){
-                let self = this;
-                if(item.score){
-                    self.$dialog.alert({
-                        title:'警告',
-                        message: '评分不可修改！'
-                    })
-                }else {
-                    self.$router.push('/judge/'+item.id)
-                }
+                return item.name + ' 总分 ' + item.score_amount + ' 已评 ' + item.judged_count
             },
             alert: function (message) {
                 let self = this
@@ -59,7 +42,7 @@
         mounted: function () {
             let self = this
             self.$http
-                .get('/api/composition/?competition=' + self.id)
+                .get('/api/listcomposition/?competition=' + self.id)
                 .then(res => {
                     self.list = res.data
                 })

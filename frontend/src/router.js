@@ -5,7 +5,9 @@ import CompetitionList from "./components/CompetitionList";
 import CompositionList from "./components/CompositionList";
 import JudgeView from "./views/JudgeView";
 import LoginView from "./views/LoginView";
-import Rules from "./components/Rules";
+import CompetitionListStatistics from "./components/CompetitionListStatistics";
+import CompositionListStatistics from "./components/CompositionListStatistics";
+import PagesStatisticsView from "./views/PagesStatisticsView";
 
 Vue.use(Router);
 
@@ -33,17 +35,29 @@ const router = new Router({
                     name: 'JudgeView',
                     component: JudgeView
                 },
-                {
-                    path: 'rules',
-                    name: 'rules',
-                    component: Rules
-                },
             ],
 
         },
         {
             path: '/login',
             component: LoginView,
+        },
+        {
+            path: '/statistics',
+            redirect: '/statistics/competition',
+            component: PagesStatisticsView,
+            children: [
+                {
+                    path: '/statistics/competition',
+                    name: 'CompetitionListStatistics',
+                    component: CompetitionListStatistics
+                },
+                {
+                    path: '/statistics/composition/:id',
+                    name: 'CompositionListStatistics',
+                    component: CompositionListStatistics
+                }
+            ],
         }
     ]
 });

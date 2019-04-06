@@ -1,24 +1,20 @@
 <template>
-    <div style="height: 100vh;">
-        <div>
-        </div>
-        <div style="position: absolute; bottom:50%;width:100%;">
-            <van-panel desc="描述信息" status="状态" title="标题">
-                <div slot="header">
-                    <h2>请登录</h2>
-                </div>
-                <van-field
-                        label="密码"
-                        placeholder="请输入登陆码"
-                        required
-                        type="password"
-                        v-model="password"
-                />
-                <div slot="footer">
-                    <van-button @click="loginCxy" size="large">登陆</van-button>
-                </div>
-            </van-panel>
-        </div>
+    <div class="login-input">
+        <van-panel desc="描述信息" status="状态" title="标题">
+            <div slot="header">
+                <h2>请登录</h2>
+            </div>
+            <van-field
+                    label="密码"
+                    placeholder="请输入登陆码"
+                    required
+                    type="password"
+                    v-model="password"
+            />
+            <div slot="footer">
+                <van-button @click="loginCxy" size="large">登陆</van-button>
+            </div>
+        </van-panel>
     </div>
 </template>
 
@@ -68,5 +64,13 @@
 </script>
 
 <style scoped>
+    body {
+        height: 100%;
+    }
 
+    .login-input {
+        position: absolute;
+        top: 20%;
+        width: 100%;
+    }
 </style>

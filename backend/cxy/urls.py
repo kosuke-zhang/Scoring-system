@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
 from rest_framework import routers
 from rest_framework import serializers
 from rest_framework.documentation import include_docs_urls
@@ -25,7 +25,8 @@ from rest_framework_simplejwt.views import (
 )
 
 from competition.views import CompetitionViewSet
-from composition.views import CompositionViewSet
+from competition.views import ListCompetition
+from composition.views import CompositionViewSet, ListComposition
 from grade.views import GradeViewSet
 from user.views import UserViewSet
 from utils.MyBackend import AuthBackend
@@ -70,5 +71,8 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls')),
     path('doc/', include_docs_urls(title='文档')),
     path('api/token/', MyTokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/listcompetition/', ListCompetition.as_view()),
+    path('api/listcomposition/', ListComposition.as_view({'get': 'list'}))
+
     # path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 ]

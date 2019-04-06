@@ -12,9 +12,11 @@ class GradeModel(models.Model):
     composition = models.ForeignKey(CompositionModel, null=False, blank=False, on_delete=models.CASCADE)
     judger = models.ForeignKey(UserModel, null=False, blank=False, on_delete=models.CASCADE)
 
-    def __str__(self):
-        return f'比赛：{self.composition.competition.name} 作品：{self.composition.name} 得分：{self.judger.name} 评委：{self.judger}'
-
     class Meta:
         verbose_name = '评分'
         verbose_name_plural = '评分'
+
+        unique_together = ("judger", "composition")
+
+    def __str__(self):
+        return f'比赛：{self.composition.competition.name} 作品：{self.composition.name} 得分：{self.score} 评委：{self.judger.username}'

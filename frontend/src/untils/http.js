@@ -1,7 +1,7 @@
 import axios from "axios";
 import router from '../router'
 
-axios.defaults.baseURL = 'http://cxy_backend:8000';
+axios.defaults.baseURL = 'http://http://188.131.201.33';
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 
 axios.interceptors.request.use(

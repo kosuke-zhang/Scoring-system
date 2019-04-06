@@ -39,7 +39,7 @@ class UserManager(BaseUserManager):
 
 
 def gen_rom():
-    code = random.choices('qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890', k=6)
+    code = random.choices('qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890', k=10)
     return ''.join(code)
 
 

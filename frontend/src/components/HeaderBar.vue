@@ -2,6 +2,7 @@
     <div class="header-bar">
         <van-nav-bar title="创新院比赛评分系统" @click-right="onClickRight">
             <van-icon name="wap-home" slot="right"/>
+            <van-icon name="wap-home" slot="right"/>
         </van-nav-bar>
     </div>
 </template>

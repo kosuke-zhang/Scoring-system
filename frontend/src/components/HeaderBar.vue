@@ -1,8 +1,6 @@
 <template>
     <div class="header-bar">
         <van-nav-bar title="创新院比赛评分系统" @click-right="onClickRight">
-            <!-- :left-text="leftText" :left-arrow="showLeftArrow"-->
-            <van-icon name="wap-home" slot="left"/>
             <van-icon name="wap-home" slot="right"/>
         </van-nav-bar>
     </div>
@@ -20,13 +18,8 @@
             return {
             }
         },
-        // props:{
-        //     showLeftArrow: true,
-        //     leftText: ''
-        // },
         methods: {
             onClickRight() {
-                console.log(this.$router.currentRoute)
                 this.$router.push('/')
             }
         }

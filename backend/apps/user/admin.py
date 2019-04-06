@@ -5,7 +5,7 @@ from .models import UserModel
 
 class UserAdmin(admin.ModelAdmin):
     fields = ['username', 'email', 'code']
-    list_display = ['username', 'email', 'code', 'is_activate', 'is_staff', 'is_superuser']
+    list_display = ['username', 'email', 'code', 'is_active', 'is_staff', 'is_superuser']
     readonly_fields = ['code']
 
 

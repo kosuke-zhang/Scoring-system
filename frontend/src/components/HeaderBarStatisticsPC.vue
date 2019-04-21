@@ -2,7 +2,6 @@
     <div class="header-bar-pc">
         <el-menu :default-active="activeIndex" @select="competitionSelect" class="el-menu-cxy" mode="horizontal">
             <el-menu-item index="competition">比赛</el-menu-item>
-            <el-menu-item index="statistics">统计</el-menu-item>
         </el-menu>
     </div>
 </template>

@@ -1,5 +1,4 @@
-static/rest_framework/
-static/admin/
+frontend/dist/static/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

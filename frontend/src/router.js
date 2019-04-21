@@ -8,6 +8,9 @@ import LoginView from "./views/LoginView";
 import CompetitionListStatistics from "./components/CompetitionListStatistics";
 import CompositionListStatistics from "./components/CompositionListStatistics";
 import PagesStatisticsView from "./views/PagesStatisticsView";
+import PagesStatisticsPCView from "./views/PagesStatisticsPCView";
+import CompositionListStatisticsPC from "./components/CompositionListStatisticsPC";
+import CompetitionListStatisticsPC from "./components/CompetitionListStatisticsPC";
 
 Vue.use(Router);
 
@@ -56,6 +59,23 @@ const router = new Router({
                     path: '/statistics/composition/:id',
                     name: 'CompositionListStatistics',
                     component: CompositionListStatistics
+                }
+            ],
+        },
+        {
+            path: '/pc-statistics',
+            redirect: '/pc-statistics/competition',
+            component: PagesStatisticsPCView,
+            children: [
+                {
+                    path: '/pc-statistics/competition',
+                    name: 'CompetitionListStatisticsPC',
+                    component: CompetitionListStatisticsPC
+                },
+                {
+                    path: '/pc-statistics/composition/:id',
+                    name: 'CompositionListStatisticsPC',
+                    component: CompositionListStatisticsPC
                 }
             ],
         }

@@ -14,7 +14,7 @@
 
 <script>
     export default {
-        name: "CompositionList",
+        name: "CompositionListStatistics",
         data() {
             return {
                 id: null,
@@ -34,7 +34,7 @@
             alert: function (message) {
                 let self = this
                 self.$dialog.alert({
-                    title: '获取团队信息失败',
+                    title: '获取统计信息失败',
                     message: message
                 })
             },

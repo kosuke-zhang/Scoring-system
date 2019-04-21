@@ -15,7 +15,7 @@
 
 <script>
     export default {
-        name: "CompetitionList",
+        name: "CompetitionListStatistics",
         data() {
             return {
                 finished: true,
@@ -38,7 +38,6 @@
                 .get('/api/listcompetition/')
                 .then(res => {
                     self.list = res.data
-                    console.log(res)
                 })
                 .catch(function (error) {
                     let message = error

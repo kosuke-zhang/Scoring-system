@@ -10,8 +10,8 @@
     import HeaderBarStatistics from "../components/HeaderBarStatistics";
 
     export default {
-        name: 'pages-view',
-        components: { HeaderBarStatistics },
+        name: 'pages-view-statistics',
+        components: {HeaderBarStatistics},
         data() {
             return {}
         },

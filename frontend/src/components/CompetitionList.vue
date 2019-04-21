@@ -38,7 +38,6 @@
                 .get('/api/competition/')
                 .then(res => {
                     self.list = res.data
-                    console.log(res)
                 })
                 .catch(function (error) {
                     let message = error

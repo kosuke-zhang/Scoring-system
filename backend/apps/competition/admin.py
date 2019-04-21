@@ -4,7 +4,7 @@ from .models import CompetitionModel
 
 
 class CompetitionAdmin(admin.ModelAdmin):
-    fields = ['name', 'judger']
+    fields = ['name', 'judger', 'date']
     list_display = ['name']
 
     list_filter = []

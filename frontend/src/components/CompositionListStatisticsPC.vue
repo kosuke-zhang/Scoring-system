@@ -27,6 +27,7 @@
         },
         data() {
             return {
+                setInterval: undefined,
                 chart: {
                     legend: {
                         data: ['比赛成绩', '打分人数']
@@ -34,12 +35,12 @@
                     toolbox: {
                         show: true, //是否显示工具栏组件
                         feature: {
-                            saveAsImage: { show: true },
-                            dataView: { show: true },
+                            saveAsImage: {show: true},
+                            dataView: {show: true},
                             magicType: {
                                 type: ['line', 'bar']
                             },
-                            restore: { show: true },
+                            restore: {show: true},
                         },
                         right: '10%'
                     },
@@ -69,7 +70,7 @@
                             data: [],
                             markPoint: {
                                 data: [
-                                    { type: 'max', name: '最大值' },
+                                    {type: 'max', name: '最大值'},
                                 ]
                             },
                             markLine: {
@@ -150,10 +151,14 @@
         mounted: function () {
             let self = this;
             self.statistics();
-            setInterval(
-                ()=>self.statistics(),
+            this.setInterval = setInterval(
+                () => self.statistics(),
                 10000
-            )
+            );
+            this.setInterval();
+        },
+        beforeDestroy() {
+            clearInterval(this.setInterval)
         }
     }
 </script>

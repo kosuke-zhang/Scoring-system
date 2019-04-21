@@ -104,48 +104,56 @@
                     )
                 });
             },
+            statistics: function () {
+                let self = this;
+                self.$http
+                    .get('/api/listcomposition/?competition=' + self.id)
+                    .then(res => {
+                        self.list = res.data;
+                        let score = [];
+                        let judged = [];
+                        let composition = [];
+                        res.data.forEach((v, i) => {
+                            composition.push(v.name);
+                            score.push(v.score_amount);
+                            judged.push(v.judged_count);
+                        });
+                        self.$refs.bar.mergeOptions(
+                            {
+                                xAxis: {data: composition},
+                                series: [
+                                    {
+                                        name: '比赛成绩',
+                                        data: score
+                                    }, {
+                                        name: '打分人数',
+                                        data: judged
+                                    }]
+                            }
+                        )
+                    })
+                    .catch(function (error) {
+                        let message = error;
+                        if (error.response) {
+                            // 请求已发出，但服务器响应的状态码不在 2xx 范围内
+                            self.alert(message)
+                        } else if (error.request) {
+                            // 发送了请求但是没有响应
+                            self.alert(message)
+                        } else {
+                            // 其他错误
+                            self.alert(message)
+                        }
+                    })
+            }
         },
         mounted: function () {
             let self = this;
-            self.$http
-                .get('/api/listcomposition/?competition=' + self.id)
-                .then(res => {
-                    self.list = res.data;
-                    let score = [];
-                    let judged = [];
-                    let composition = [];
-                    res.data.forEach((v, i) => {
-                        composition.push(v.name);
-                        score.push(v.score_amount);
-                        judged.push(v.judged_count);
-                    });
-                    self.$refs.bar.mergeOptions(
-                        {
-                            xAxis: {data: composition},
-                            series: [
-                                {
-                                    name: '比赛成绩',
-                                    data: score
-                                }, {
-                                    name: '打分人数',
-                                    data: judged
-                                }]
-                        }
-                    )
-                })
-                .catch(function (error) {
-                    let message = error;
-                    if (error.response) {
-                        // 请求已发出，但服务器响应的状态码不在 2xx 范围内
-                        self.alert(message)
-                    } else if (error.request) {
-                        // 发送了请求但是没有响应
-                        self.alert(message)
-                    } else {
-                        // 其他错误
-                        self.alert(message)
-                    }
-                })
+            self.statistics();
+            setInterval(
+                ()=>self.statistics(),
+                10000
+            )
         }
     }
 </script>

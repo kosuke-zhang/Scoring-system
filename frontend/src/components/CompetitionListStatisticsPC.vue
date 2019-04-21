@@ -32,17 +32,7 @@
         name: "CompetitionListStatisticsPC",
         data() {
             return {
-                list: [
-                    {
-                        "id": 1,
-                        "name": "比赛1",
-                        "date": "2019-04-21",
-                    },
-                    {
-                        "id": 2,
-                        "name": "比赛2",
-                        "date": "2019-04-21",
-                    }]
+                list: []
             }
         },
         methods: {
@@ -56,7 +46,6 @@
             },
             alert: function (message) {
                 let self = this;
-
                 this.$notify({
                     title: '获取比赛信息失败',
                     message: self.$createElement(

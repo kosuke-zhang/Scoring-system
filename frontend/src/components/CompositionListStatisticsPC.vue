@@ -68,11 +68,11 @@
                             type: 'bar',
                             yAxisIndex: 0,
                             data: [],
-                            markPoint: {
-                                data: [
-                                    {type: 'max', name: '最大值'},
-                                ]
-                            },
+                            // markPoint: {
+                            //     data: [
+                            //         {type: 'max', name: '最大值'},
+                            //     ]
+                            // },
                             markLine: {
                                 data: [
                                     {type: 'average', name: '平均值'},

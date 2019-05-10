@@ -2,7 +2,7 @@
     <div class="header-bar">
         <van-nav-bar @click-left="onClickLeft" @click-right="onClickRight" title="评分">
             <van-icon name="wap-home" slot="right"/>
-            <van-icon name="chart-trending-o" slot="left"/>
+<!--            <van-icon name="chart-trending-o" slot="left"/>-->
         </van-nav-bar>
     </div>
 </template>
